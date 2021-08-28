@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="entityPanel (panel)">
+    <table th:class="panel.cssClass">
+    <tr th:each="field : ${panel.fields}">
+        <td class="panel_label">
+            <div th:text="${field.name}"></div>
+        </td>
+        <td>
+            <input th:type="${field.type.type}" th:value="${field.value}" th:readonly="${field.readOnly}" class="panel_input">
+        </td>
+    </tr>
+    </table>
+    <input onclick="javascript:window.history.back()" value="Назад" type="button" class="button_back"/>
+</div>
+</body>
+</html>

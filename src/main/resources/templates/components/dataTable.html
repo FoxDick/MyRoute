@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="dataTable (table)">
+    <div>
+        <h4>
+            <div th:text="${table.tableName}"></div>
+        </h4>
+    </div>
+    <table th:class="${table.cssClass}">
+        <thead>
+        <tr>
+            <th th:each="column : ${table.columns}">
+                <div th:text="${column.name}"></div>
+            </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:if="${table.data.isEmpty()}">
+            <td th:colspan="${table.columns.size()}"><div th:text="${table.emptyDataText}"></div></td>
+        </tr>
+        <tr th:each="row : ${table.data}">
+                <td th:each="column : ${table.columns}">
+                    <a th:href="@{'/panels/' + ${table.className} + '/' + ${row.id}}" class="row_link">
+                        <div th:text="${column.getColumnData(row)}"></div>
+                    </a>
+                </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

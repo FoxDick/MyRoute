@@ -1,0 +1,11 @@
+.panel_label {
+    padding: 10px;
+}
+
+.panel_input:read-only {
+    opacity: 0.3;
+}
+
+.button_back {
+    margin: 10px;
+}

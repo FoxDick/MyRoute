@@ -1,0 +1,11 @@
+.row_link {
+    text-decoration: none;
+    color: black;
+}
+row_link:link, row_link:visited, row_link:hover, row_link:visited:hover {
+    text-decoration: none;
+    color: black;
+}
+
+
+
